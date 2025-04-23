@@ -9,6 +9,8 @@ if (NOT OpenCV_FOUND)
     return()
 endif()
 
-add_executable(classification classification.cpp)
-target_include_directories(classification PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_include_directories(classification PRIVATE
+    ${OpenCV_INCLUDE_DIRS}
+    ${PROJECT_SOURCE_DIR}/../opencv4_4_x86_gcc4_9/include/opencv4
+    )
 target_link_libraries(classification PRIVATE pplnn_static ${OpenCV_LIBS})
